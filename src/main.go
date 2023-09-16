@@ -13,11 +13,11 @@ func main() {
 		})
 	})
 	r.Run() // listen and serve on
-	r.POST("/upload")
-}
-
-func UploadBusinessCard(c *gin.Context) {
-	db := getdb()
-	defer db.Close()
-	
+	r.POST("/upload", func(c *gin.Context) {
+		db := getdb()
+		defer db.Close()
+		name := c.PostForm("name")
+		WXID := c.PostForm("WXID")
+		
+	})
 }
